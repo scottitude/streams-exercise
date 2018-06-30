@@ -1,4 +1,8 @@
-
+#-------------------------------------------------#
+# Title: Working with Streams
+# Dev:   Scott Luse
+# Date:  June 30 2018
+#-------------------------------------------------#
 
 class StreamProcessor(object):
     """
@@ -48,7 +52,11 @@ class StreamProcessor(object):
     def process(self):
         """
         TODO: Implement the `process` method, as described above.
-        
+
+        :input from try.py
+        my_stream_processor = StreamProcessor(io.StringIO(value))
+        result = my_stream_processor.process()
+
         :return: int
         """
 
@@ -56,12 +64,13 @@ class StreamProcessor(object):
                    # together.
         total = 0  # The running total of sums.
 
-        # TODO: WRITE CODE HERE:
+        while(count < 10 and total < 200):
+            digits = self._stream.read(2)
+            if len(digits) < 2:
+                break
+            count += 1
 
-        # Just some example syntax, you can read two digits from the head of the
-        # stream using the following code:
-        #
-        # digits = self._stream.read(2)
-
+            n = int(digits)
+            total += n
 
         return count
